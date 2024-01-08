@@ -6,26 +6,17 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import * as THREE from 'three'
 import gsap from 'gsap'
 
-/**
- * Debug
- */
-
-
+// Debug
 const parameters = {
     materialColor: '#ffeded'
 }
 
-
-/**
- * Base
- */
+// Base
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
-
-// Objects
 
 // Textures
 const textureLoader = new THREE.TextureLoader()
@@ -99,9 +90,7 @@ const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
 directionalLight.position.set(1, 1, 0)
 scene.add(directionalLight)
 
-/**
- * Sizes
- */
+// Sizes
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
@@ -121,9 +110,7 @@ window.addEventListener('resize', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
-/**
- * Camera
- */
+// Camera's
 // Group
 const cameraGroup = new THREE.Group()
 scene.add(cameraGroup)
@@ -133,9 +120,7 @@ const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.height, 0.1, 
 camera.position.z = 6
 cameraGroup.add(camera)
 
-/**
- * Renderer
- */
+// Renderer
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     alpha: true
@@ -176,9 +161,7 @@ window.addEventListener('mousemove', (event) => {
     cursor.y = event.clientY / sizes.height - 0.5
 })
 
-/**
- * Animate
- */
+// Animation
 const clock = new THREE.Clock()
 let previousTime = 0
 
